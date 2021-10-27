@@ -16,6 +16,7 @@ import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 public class MainActivity extends AppCompatActivity {
 
+
     String websiteURL = "https://news.google.com/topstories?hl=en-IN&gl=IN&ceid=IN:en"; // sets web url
     private WebView webview;
     SwipeRefreshLayout mySwipeRefreshLayout;
