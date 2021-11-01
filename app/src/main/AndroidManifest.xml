@@ -11,7 +11,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.FinalPage">
         <activity
-            android:name=".MainActivity"
+            android:name=".SelectionPage"
             android:screenOrientation="portrait"
             android:exported="true">
 
