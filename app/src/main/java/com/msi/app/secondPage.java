@@ -14,7 +14,7 @@ import android.webkit.WebViewClient;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
-public class ChoosePage extends AppCompatActivity {
+public class secondPage extends AppCompatActivity {
 
     String websiteURL = "https://in.mashable.com"; // sets web url
     private WebView webview;
@@ -25,12 +25,12 @@ public class ChoosePage extends AppCompatActivity {
         super.onCreate(savedInstanceState);
 
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);
-        setContentView(R.layout.choose_page);
+        setContentView(R.layout.second_page);
 
         if( ! CheckNetwork.isInternetAvailable(this)) //returns true if internet available
         {
             //if there is no internet do this
-            setContentView(R.layout.choose_page);
+            setContentView(R.layout.second_page);
             //Toast.makeText(this,"No Internet Connection, Chris",Toast.LENGTH_LONG).show();
 
             new AlertDialog.Builder(this) //alert the person knowing they are about to close
@@ -49,7 +49,7 @@ public class ChoosePage extends AppCompatActivity {
         else
         {
             //Webview stuff
-            webview = findViewById(R.id.webView2);
+            webview = findViewById(R.id.webView21);
             webview.getSettings().setJavaScriptEnabled(true);
             webview.getSettings().setDomStorageEnabled(true);
             webview.setOverScrollMode(WebView.OVER_SCROLL_NEVER);
@@ -110,9 +110,9 @@ public class ChoosePage extends AppCompatActivity {
 
 }
 
-class CheckNetwork1 {
+class CheckNetwork2 {
 
-    private static final String TAG = CheckNetwork1.class.getSimpleName();
+    private static final String TAG = CheckNetwork2.class.getSimpleName();
 
     public static boolean isInternetAvailable(Context context)
     {
@@ -121,19 +121,19 @@ class CheckNetwork1 {
 
         if (info == null)
         {
-            Log.d(TAG,"no internet connection");
+            Log.d(TAG,"No Internet Connection");
             return false;
         }
         else
         {
             if(info.isConnected())
             {
-                Log.d(TAG," internet connection available...");
+                Log.d(TAG," Internet Connection Available...");
                 return true;
             }
             else
             {
-                Log.d(TAG," internet connection");
+                Log.d(TAG," Internet Connection");
                 return true;
             }
 

@@ -50,7 +50,7 @@ public class MainActivity extends AppCompatActivity {
         else
         {
             //Webview stuff
-            webview = findViewById(R.id.webView1);
+            webview = findViewById(R.id.webView2);
             webview.getSettings().setJavaScriptEnabled(true);
             webview.getSettings().setDomStorageEnabled(true);
             webview.setOverScrollMode(WebView.OVER_SCROLL_NEVER);

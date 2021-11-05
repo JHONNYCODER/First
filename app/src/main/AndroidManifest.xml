@@ -11,6 +11,19 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.FinalPage">
         <activity
+            android:name=".ChoosePage"
+            android:screenOrientation="portrait"
+            android:exported="true">
+        </activity>
+
+        <activity
+            android:name=".secondPage"
+            android:screenOrientation="portrait"
+            android:exported="true">
+        </activity>
+
+
+        <activity
             android:name=".SelectionPage"
             android:screenOrientation="portrait"
             android:exported="true">
