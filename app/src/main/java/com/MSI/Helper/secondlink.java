@@ -1,4 +1,4 @@
-package com.msi.app;
+package com.MSI.Helper;
 
 import android.app.AlertDialog;
 import android.content.Context;
@@ -10,13 +10,12 @@ import android.util.Log;
 import android.view.WindowManager;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
-
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
-public class secondPage extends AppCompatActivity {
+public class secondlink extends AppCompatActivity {
 
-    String websiteURL = "https://in.mashable.com"; // sets web url
+    String websiteURL = "https://drive.google.com/drive/folders/198o75kg1brr64ku94l2nrZSGTsMOIk-J?usp=sharing"; // sets web url
     private WebView webview;
     SwipeRefreshLayout mySwipeRefreshLayout;
 
@@ -25,12 +24,12 @@ public class secondPage extends AppCompatActivity {
         super.onCreate(savedInstanceState);
 
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);
-        setContentView(R.layout.second_page);
+        setContentView(R.layout.second_link);
 
-        if( ! CheckNetwork.isInternetAvailable(this)) //returns true if internet available
+        if( ! CheckNetwork7.isInternetAvailable(this)) //returns true if internet available
         {
             //if there is no internet do this
-            setContentView(R.layout.second_page);
+            setContentView(R.layout.second_link);
             //Toast.makeText(this,"No Internet Connection, Chris",Toast.LENGTH_LONG).show();
 
             new AlertDialog.Builder(this) //alert the person knowing they are about to close
@@ -49,7 +48,7 @@ public class secondPage extends AppCompatActivity {
         else
         {
             //Webview stuff
-            webview = findViewById(R.id.webView21);
+            webview = findViewById(R.id.webView2);
             webview.getSettings().setJavaScriptEnabled(true);
             webview.getSettings().setDomStorageEnabled(true);
             webview.setOverScrollMode(WebView.OVER_SCROLL_NEVER);
@@ -109,6 +108,7 @@ public class secondPage extends AppCompatActivity {
     }
 
 }
+
 
 class CheckNetwork2 {
 

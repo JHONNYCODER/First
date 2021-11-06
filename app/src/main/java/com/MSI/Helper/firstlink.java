@@ -1,4 +1,4 @@
-package com.msi.app;
+package com.MSI.Helper;
 
 import android.app.AlertDialog;
 import android.content.Context;
@@ -14,7 +14,7 @@ import android.webkit.WebViewClient;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
-public class ChoosePage extends AppCompatActivity {
+public class firstlink extends AppCompatActivity {
 
     String websiteURL = "https://in.mashable.com"; // sets web url
     private WebView webview;
@@ -25,12 +25,12 @@ public class ChoosePage extends AppCompatActivity {
         super.onCreate(savedInstanceState);
 
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);
-        setContentView(R.layout.choose_page);
+        setContentView(R.layout.first_link);
 
-        if( ! CheckNetwork.isInternetAvailable(this)) //returns true if internet available
+        if( ! CheckNetwork1.isInternetAvailable(this)) //returns true if internet available
         {
             //if there is no internet do this
-            setContentView(R.layout.choose_page);
+            setContentView(R.layout.first_link);
             //Toast.makeText(this,"No Internet Connection, Chris",Toast.LENGTH_LONG).show();
 
             new AlertDialog.Builder(this) //alert the person knowing they are about to close
@@ -49,7 +49,7 @@ public class ChoosePage extends AppCompatActivity {
         else
         {
             //Webview stuff
-            webview = findViewById(R.id.webView2);
+            webview = findViewById(R.id.webView1);
             webview.getSettings().setJavaScriptEnabled(true);
             webview.getSettings().setDomStorageEnabled(true);
             webview.setOverScrollMode(WebView.OVER_SCROLL_NEVER);
