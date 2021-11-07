@@ -8,6 +8,7 @@ import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.WindowManager;
+import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import androidx.appcompat.app.AppCompatActivity;
@@ -15,7 +16,7 @@ import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 public class thirdlink extends AppCompatActivity {
 
-    String websiteURL = "https://drive.google.com/drive/folders/198o75kg1brr64ku94l2nrZSGTsMOIk-J?usp=sharing"; // sets web url
+    String websiteURL = "www.ipjugaad.com"; // sets web url
     private WebView webview;
     SwipeRefreshLayout mySwipeRefreshLayout;
 
@@ -54,6 +55,8 @@ public class thirdlink extends AppCompatActivity {
             webview.setOverScrollMode(WebView.OVER_SCROLL_NEVER);
             webview.loadUrl(websiteURL);
             webview.setWebViewClient(new WebViewClientDemo());
+
+
 
         }
 

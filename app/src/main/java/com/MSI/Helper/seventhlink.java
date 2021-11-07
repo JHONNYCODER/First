@@ -15,7 +15,7 @@ import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 public class seventhlink extends AppCompatActivity {
 
-    String websiteURL = "https://drive.google.com/drive/folders/198o75kg1brr64ku94l2nrZSGTsMOIk-J?usp=sharing"; // sets web url
+    String websiteURL = "https://in.mashable.com"; // sets web url
     private WebView webview;
     SwipeRefreshLayout mySwipeRefreshLayout;
 

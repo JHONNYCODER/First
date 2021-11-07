@@ -16,7 +16,7 @@ import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 public class firstlink extends AppCompatActivity {
 
-    String websiteURL = "https://in.mashable.com"; // sets web url
+    String websiteURL = "http://www.ipu.ac.in"; // sets web url
     private WebView webview;
     SwipeRefreshLayout mySwipeRefreshLayout;
 

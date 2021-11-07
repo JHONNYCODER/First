@@ -32,8 +32,8 @@ public class selectionPage extends AppCompatActivity {
         LinearLayout ld9 = findViewById(R.id.ld9);
         LinearLayout ld10 = findViewById(R.id.ld10);
 
-        TextView txt1 = findViewById(R.id.txt1);
-        TextView txt2 = findViewById(R.id.txt2);
+        TextView log  = findViewById(R.id.log);
+        TextView team = findViewById(R.id.team);
 
 
         ld1.setOnClickListener(new View.OnClickListener() {
@@ -106,14 +106,14 @@ public class selectionPage extends AppCompatActivity {
                 startActivity(intent10);
             }
         });
-        txt1.setOnClickListener(new View.OnClickListener() {
+        log.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view11) {
                 Intent txt = new Intent(selectionPage.this , selectionPage.class);
                 startActivity(txt);
             }
         });
-        txt2.setOnClickListener(new View.OnClickListener() {
+        team.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view12) {
                 Intent tzt = new Intent(selectionPage.this , selectionPage.class);

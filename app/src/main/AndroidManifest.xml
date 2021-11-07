@@ -7,15 +7,15 @@
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
+        android:usesCleartextTraffic="true"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.FinalPage">
+        android:hardwareAccelerated="true"
+        android:theme="@style/Theme.AppCompat.Light">
+
         <activity
             android:name="com.MSI.Helper.firstlink"
-            android:screenOrientation="portrait"
-            android:exported="true">
-        </activity>
-
+            android:exported="true" />
         <activity
             android:name="com.MSI.Helper.secondlink"
             android:screenOrientation="portrait"
@@ -69,9 +69,28 @@
             android:screenOrientation="portrait"
             android:exported="true">
         </activity>
-
         <activity
             android:name="com.MSI.Helper.selectionPage"
+            android:exported="true" />
+
+        <activity
+            android:name="com.MSI.Helper.mainpage"
+            android:exported="true" />
+        <activity
+            android:name="com.MSI.Helper.newlogin"
+            android:exported="true" />
+        <activity
+            android:name="com.MSI.Helper.dashboard"
+            android:exported="true" />
+        <activity
+            android:name="com.MSI.Helper.MainActivity2"
+            android:exported="true" />
+        <activity
+            android:name="com.MSI.Helper.MainActivity"
+            android:exported="true" />
+
+        <activity
+            android:name="com.MSI.Helper.newone"
             android:screenOrientation="portrait"
             android:exported="true">
 
