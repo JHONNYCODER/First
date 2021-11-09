@@ -6,21 +6,21 @@ import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import org.w3c.dom.Text;
+import com.google.firebase.auth.FirebaseAuth;
 
 
 public class selectionPage extends AppCompatActivity {
+
+    FirebaseAuth mAuth;
 
     @SuppressLint("WrongViewCast")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.selection_page);
-
         LinearLayout ld1 = findViewById(R.id.ld1);
         LinearLayout ld2 = findViewById(R.id.ld2);
         LinearLayout ld3 = findViewById(R.id.ld3);
@@ -35,6 +35,7 @@ public class selectionPage extends AppCompatActivity {
         TextView log  = findViewById(R.id.log);
         TextView team = findViewById(R.id.team);
 
+        mAuth=FirebaseAuth.getInstance();
 
         ld1.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -106,18 +107,20 @@ public class selectionPage extends AppCompatActivity {
                 startActivity(intent10);
             }
         });
-        log.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view11) {
-                Intent txt = new Intent(selectionPage.this , selectionPage.class);
-                startActivity(txt);
-            }
-        });
         team.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view12) {
                 Intent tzt = new Intent(selectionPage.this , selectionPage.class);
                 startActivity(tzt);
+            }
+        });
+        log.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                mAuth.signOut();
+                Intent intent=new Intent(selectionPage.this, LoginPage.class);
+                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK |Intent.FLAG_ACTIVITY_NEW_TASK);
+                startActivity(intent);
             }
         });
 

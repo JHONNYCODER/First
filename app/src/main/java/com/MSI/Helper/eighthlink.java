@@ -15,9 +15,9 @@ import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 public class eighthlink extends AppCompatActivity {
 
-    String websiteURL = ""; // sets web url
+    String websiteURL = "https://www.google.com/fbx?fbx=snake_arcade"; // sets web url
     private WebView webview;
-    SwipeRefreshLayout mySwipeRefreshLayout;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,7 +34,7 @@ public class eighthlink extends AppCompatActivity {
 
             new AlertDialog.Builder(this) //alert the person knowing they are about to close
                     .setTitle("No internet connection available")
-                    .setMessage("Please Check you're Mobile data or Wifi network.")
+                    .setMessage("Please Check your Mobile data or Wifi network.")
                     .setPositiveButton("Ok", new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
@@ -53,39 +53,25 @@ public class eighthlink extends AppCompatActivity {
             webview.getSettings().setDomStorageEnabled(true);
             webview.setOverScrollMode(WebView.OVER_SCROLL_NEVER);
             webview.loadUrl(websiteURL);
-            webview.setWebViewClient(new WebViewClientDemo());
+          //  webview.setWebViewClient(new WebViewClientDemo());
 
         }
 
-        //Swipe to refresh functionality
-        mySwipeRefreshLayout = (SwipeRefreshLayout)this.findViewById(R.id.swipeContainer);
 
-        mySwipeRefreshLayout.setOnRefreshListener(
-                new SwipeRefreshLayout.OnRefreshListener() {
-                    @Override
-                    public void onRefresh() {
-                        webview.reload();
-                    }
-                }
-        );
 
     }
 
 
-    private class WebViewClientDemo extends WebViewClient {
+  /*  private class WebViewClientDemo extends WebViewClient {
         @Override
         //Keep webview in app when clicking links
         public boolean shouldOverrideUrlLoading(WebView view, String url) {
             view.loadUrl(url);
             return true;
         }
-        @Override
-        public void onPageFinished(WebView view, String url) {
-            super.onPageFinished(view, url);
-            mySwipeRefreshLayout.setRefreshing(false);
-        }
-    }
 
+    }
+*/
     //set back button functionality
     @Override
     public void onBackPressed() { //if user presses the back button do this

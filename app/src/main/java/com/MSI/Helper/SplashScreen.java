@@ -10,9 +10,7 @@ import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.MSI.Helper.R;
-
-public class newone extends AppCompatActivity {
+public class SplashScreen extends AppCompatActivity {
     ImageView imagepage,imageicon,star1,star2,star3,star4,star5,star6,star7,star8,star9,
                star10,star11,star12,star13,star14,star15;
 
@@ -26,7 +24,7 @@ public class newone extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_newone);
+        setContentView(R.layout.splash_screen);
 
         imagepage =(ImageView) findViewById(R.id.imagepage);
         imageicon=(ImageView) findViewById(R.id.imageicon);
@@ -104,7 +102,7 @@ public class newone extends AppCompatActivity {
         start.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent=new Intent(newone.this,MainActivity.class);
+                Intent intent=new Intent(SplashScreen.this,MainActivity.class);
                 intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
                 startActivity(intent);
             }

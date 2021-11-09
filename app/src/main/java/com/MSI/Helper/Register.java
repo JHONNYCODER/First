@@ -13,13 +13,12 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.MSI.Helper.R;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 
-public class newlogin extends AppCompatActivity {
+public class Register extends AppCompatActivity {
 
     TextView btn;
     EditText username001,email002,password003,confirmpassword004;
@@ -32,7 +31,7 @@ public class newlogin extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);
-        setContentView(R.layout.activity_newlogin);
+        setContentView(R.layout.register);
 
 
         btn=findViewById(R.id.alreadyac006);
@@ -42,7 +41,7 @@ public class newlogin extends AppCompatActivity {
         confirmpassword004=findViewById(R.id.confirmpassword004);
         registerbutton005=findViewById(R.id.registerbutton005);
         mAuth=FirebaseAuth.getInstance();
-        mloadingbar=new ProgressDialog(newlogin.this);
+        mloadingbar=new ProgressDialog(Register.this);
 
         registerbutton005.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -52,15 +51,10 @@ public class newlogin extends AppCompatActivity {
             }
         });
 
-
-
-
-
-
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(newlogin.this,dashboard.class));
+                startActivity(new Intent(Register.this, LoginPage.class));
             }
         });
     }
@@ -102,17 +96,17 @@ public class newlogin extends AppCompatActivity {
                 public void onComplete(@NonNull Task<AuthResult> task) {
                     if (task.isSuccessful())
                     {
-                        Toast.makeText(newlogin.this, "Successfully Registration", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(Register.this, "Successfully Registration", Toast.LENGTH_SHORT).show();
 
                         mloadingbar.dismiss();
-                        Intent intent=new Intent(newlogin.this,mainpage.class);
+                        Intent intent=new Intent(Register.this,selectionPage.class);
                         intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK |Intent.FLAG_ACTIVITY_NEW_TASK);
                         startActivity(intent);
 
                     }
                     else
                     {
-                        Toast.makeText(newlogin.this, task.getException().toString() , Toast.LENGTH_SHORT).show();
+                        Toast.makeText(Register.this, task.getException().toString() , Toast.LENGTH_SHORT).show();
 
                     }
                 }
@@ -124,7 +118,5 @@ public class newlogin extends AppCompatActivity {
     private void showError(EditText input,String s) {
         input.setError(s);
         input.requestFocus();
-
-
     }
 }

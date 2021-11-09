@@ -15,7 +15,6 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.MSI.Helper.R;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.FirebaseException;
@@ -26,7 +25,7 @@ import com.google.firebase.auth.PhoneAuthProvider;
 
 import java.util.concurrent.TimeUnit;
 
-public class MainActivity2 extends AppCompatActivity {
+public class OTPAuth extends AppCompatActivity {
     EditText inputnumber1,inputnumber2,inputnumber3,inputnumber4,inputnumber5,inputnumber6;
     Button button6;
     String getotpback;
@@ -36,7 +35,7 @@ public class MainActivity2 extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);
-        setContentView(R.layout.activity_main2);
+        setContentView(R.layout.otp_auth);
 
 
          button6 = findViewById(R.id.button6);
@@ -90,12 +89,12 @@ public class MainActivity2 extends AppCompatActivity {
                                         progressBar2.setVisibility(View.VISIBLE);
                                         button6.setVisibility(View.INVISIBLE);
                                         if (task.isSuccessful()) {
-                                            Intent intent = new Intent(getApplicationContext(),dashboard.class);
+                                            Intent intent = new Intent(getApplicationContext(), LoginPage.class);
                                             intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK|Intent.FLAG_ACTIVITY_CLEAR_TASK);
                                             startActivity(intent);
 
                                         } else {
-                                            Toast.makeText(MainActivity2.this, "Enter the correct otp", Toast.LENGTH_SHORT).show();
+                                            Toast.makeText(OTPAuth.this, "Enter the correct otp", Toast.LENGTH_SHORT).show();
                                         }
 
 
@@ -103,14 +102,14 @@ public class MainActivity2 extends AppCompatActivity {
                                 });
 
                     }else {
-                        Toast.makeText(MainActivity2.this, "Please check internet connection", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(OTPAuth.this, "Please check internet connection", Toast.LENGTH_SHORT).show();
 
                     }
 
 
 //                     Toast.makeText(MainActivity2.this, "otp verify", Toast.LENGTH_SHORT).show();
                 }else {
-                    Toast.makeText(MainActivity2.this, "please enter all number", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(OTPAuth.this, "please enter all number", Toast.LENGTH_SHORT).show();
 
                 }
 
@@ -128,7 +127,7 @@ public class MainActivity2 extends AppCompatActivity {
                         "+91" + getIntent().getStringExtra("mobile"),
                         60,
                         TimeUnit.SECONDS,
-                        MainActivity2.this,
+                        OTPAuth.this,
                         new PhoneAuthProvider.OnVerificationStateChangedCallbacks() {
                             @Override
                             public void onVerificationCompleted(@NonNull PhoneAuthCredential phoneAuthCredential) {
@@ -139,7 +138,7 @@ public class MainActivity2 extends AppCompatActivity {
                             @Override
                             public void onVerificationFailed(@NonNull FirebaseException e) {
 
-                                Toast.makeText(MainActivity2.this, e.getMessage(), Toast.LENGTH_SHORT).show();
+                                Toast.makeText(OTPAuth.this, e.getMessage(), Toast.LENGTH_SHORT).show();
 
                             }
 
@@ -147,7 +146,7 @@ public class MainActivity2 extends AppCompatActivity {
                             public void onCodeSent(@NonNull String newfillotp, @NonNull PhoneAuthProvider.ForceResendingToken forceResendingToken) {
 
                                getotpback = newfillotp;
-                                Toast.makeText(MainActivity2.this, "Otp send succussfully", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(OTPAuth.this, "Otp send succussfully", Toast.LENGTH_SHORT).show();
 
                             }
                         }

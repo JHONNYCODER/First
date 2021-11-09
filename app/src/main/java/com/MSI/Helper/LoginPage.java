@@ -13,7 +13,6 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.MSI.Helper.R;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.gms.auth.api.signin.GoogleSignInClient;
@@ -27,7 +26,7 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.GoogleAuthProvider;
 
-public class dashboard extends AppCompatActivity {
+public class LoginPage extends AppCompatActivity {
 
     private static final int RC_SIGN_IN = 101;
     TextView btn;
@@ -44,7 +43,7 @@ public class dashboard extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);
-        setContentView(R.layout.activity_dashboard);
+        setContentView(R.layout.login_page);
 
 
         btn=findViewById(R.id.signup06);
@@ -52,7 +51,7 @@ public class dashboard extends AppCompatActivity {
         password003=findViewById(R.id.password003);
         registerbutton005=findViewById(R.id.registerbutton005);
         mAuth=FirebaseAuth.getInstance();
-        mloadingbar=new ProgressDialog(dashboard.this);
+        mloadingbar=new ProgressDialog(LoginPage.this);
         googlebutton07=findViewById(R.id.googlebutton07);
 
         registerbutton005.setOnClickListener(new View.OnClickListener() {
@@ -69,7 +68,7 @@ public class dashboard extends AppCompatActivity {
 
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(dashboard.this,newlogin.class));
+                startActivity(new Intent(LoginPage.this, Register.class));
             }
         });
 
@@ -122,11 +121,11 @@ public class dashboard extends AppCompatActivity {
                             // Sign in success, update UI with the signed-in user's information
 
                             FirebaseUser user = mAuth.getCurrentUser();
-                            Toast.makeText(dashboard.this, user.getEmail()+user.getDisplayName(), Toast.LENGTH_SHORT).show();
+                            Toast.makeText(LoginPage.this, user.getEmail()+user.getDisplayName(), Toast.LENGTH_SHORT).show();
                             updateUI(user);
                         } else {
                             // If sign in fails, display a message to the user.
-                            Toast.makeText(dashboard.this,task.getException().toString(), Toast.LENGTH_SHORT).show();
+                            Toast.makeText(LoginPage.this,task.getException().toString(), Toast.LENGTH_SHORT).show();
                             updateUI(null);
                         }
                     }
@@ -134,7 +133,7 @@ public class dashboard extends AppCompatActivity {
     }
 
     private void updateUI(FirebaseUser user) {
-        Intent intent=new Intent(dashboard.this,mainpage.class);
+        Intent intent=new Intent(LoginPage.this,selectionPage.class);
         startActivity(intent);
     }
 
@@ -168,16 +167,16 @@ public class dashboard extends AppCompatActivity {
                 public void onComplete(@NonNull Task<AuthResult> task) {
                     if (task.isSuccessful()) {
 
-                        Toast.makeText(dashboard.this, "Successfully Registration", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(LoginPage.this, "Successfully Registration", Toast.LENGTH_SHORT).show();
 
                         mloadingbar.dismiss();
-                        Intent intent = new Intent(dashboard.this, selectionPage.class);
+                        Intent intent = new Intent(LoginPage.this, selectionPage.class);
                         intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
                         startActivity(intent);
 
                     } else {
                        // Toast.makeText(dashboard.this, task.getException().toString(), Toast.LENGTH_LONG).show();
-                        Toast.makeText(dashboard.this, "Password or Email Wrong !", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(LoginPage.this, "Password or Email Wrong !", Toast.LENGTH_SHORT).show();
                         mloadingbar.dismiss();
                     }
                 }

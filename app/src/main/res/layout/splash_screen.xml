@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white"
-    tools:context="com.MSI.Helper.newone">
+    tools:context="com.MSI.Helper.SplashScreen">
 
 
     <ImageView
@@ -208,7 +208,7 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="208dp"
         android:fontFamily="@font/abril_fatface"
-        android:text="LETS START"
+        android:text="LET'S START"
         android:textAlignment="center"
         android:textColor="@color/black"
         android:textSize="36sp"

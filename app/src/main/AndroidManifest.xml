@@ -11,7 +11,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:hardwareAccelerated="true"
-        android:theme="@style/Theme.AppCompat.Light">
+        android:theme="@style/Theme.AppCompat.DayNight.NoActionBar">
 
         <activity
             android:name="com.MSI.Helper.firstlink"
@@ -70,27 +70,24 @@
             android:exported="true">
         </activity>
         <activity
-            android:name="com.MSI.Helper.selectionPage"
+            android:name="com.MSI.Helper.SplashScreen"
             android:exported="true" />
 
         <activity
-            android:name="com.MSI.Helper.mainpage"
+            android:name="com.MSI.Helper.Register"
             android:exported="true" />
         <activity
-            android:name="com.MSI.Helper.newlogin"
+            android:name="com.MSI.Helper.LoginPage"
             android:exported="true" />
         <activity
-            android:name="com.MSI.Helper.dashboard"
-            android:exported="true" />
-        <activity
-            android:name="com.MSI.Helper.MainActivity2"
+            android:name="com.MSI.Helper.OTPAuth"
             android:exported="true" />
         <activity
             android:name="com.MSI.Helper.MainActivity"
             android:exported="true" />
 
         <activity
-            android:name="com.MSI.Helper.newone"
+            android:name="com.MSI.Helper.selectionPage"
             android:screenOrientation="portrait"
             android:exported="true">
 

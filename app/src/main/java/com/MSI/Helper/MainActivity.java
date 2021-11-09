@@ -12,7 +12,6 @@ import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
-import com.MSI.Helper.R;
 import com.google.firebase.FirebaseException;
 import com.google.firebase.auth.PhoneAuthCredential;
 import com.google.firebase.auth.PhoneAuthProvider;
@@ -70,7 +69,7 @@ public class MainActivity extends AppCompatActivity {
                                        public void onCodeSent(@NonNull String fillotp, @NonNull PhoneAuthProvider.ForceResendingToken forceResendingToken) {
                                         progressBar.setVisibility(View.GONE);
                                         button6.setVisibility(View.VISIBLE);
-                                        Intent intent = new Intent(getApplicationContext(), MainActivity2.class);
+                                        Intent intent = new Intent(getApplicationContext(), OTPAuth.class);
                                         intent.putExtra("mobile", editTextNumber3.getText().toString());
                                         intent.putExtra("fillotp",fillotp);
                                         intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
