@@ -70,7 +70,7 @@
             android:exported="true">
         </activity>
         <activity
-            android:name="com.MSI.Helper.SplashScreen"
+            android:name="com.MSI.Helper.selectionPage"
             android:exported="true" />
 
         <activity
@@ -87,7 +87,7 @@
             android:exported="true" />
 
         <activity
-            android:name="com.MSI.Helper.selectionPage"
+            android:name="com.MSI.Helper.SplashScreen"
             android:screenOrientation="portrait"
             android:exported="true">
 

@@ -3,11 +3,14 @@ package com.MSI.Helper;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
 
@@ -15,8 +18,13 @@ import com.google.firebase.auth.FirebaseAuth;
 public class selectionPage extends AppCompatActivity {
 
     FirebaseAuth mAuth;
+    SharedPreferences sharedPreferences ;
+
+    private static final String SHARED_PREF_NAME = "mypref";
+    private static final String KEY_NAME = "name";
 
     @SuppressLint("WrongViewCast")
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -36,7 +44,7 @@ public class selectionPage extends AppCompatActivity {
         TextView team = findViewById(R.id.team);
 
         mAuth=FirebaseAuth.getInstance();
-
+        sharedPreferences = getSharedPreferences(SHARED_PREF_NAME, Context.MODE_PRIVATE);
         ld1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view1) {
@@ -118,6 +126,17 @@ public class selectionPage extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 mAuth.signOut();
+
+                sharedPreferences = getSharedPreferences(SHARED_PREF_NAME,MODE_PRIVATE);
+                Boolean name = sharedPreferences.getBoolean(KEY_NAME,false);
+
+                    SharedPreferences.Editor editor = sharedPreferences.edit();
+                    editor.putBoolean(KEY_NAME,false);
+                    editor.apply();
+                    finish();
+                Toast.makeText(selectionPage.this, "Logged Out",Toast.LENGTH_SHORT).show();
+
+
                 Intent intent=new Intent(selectionPage.this, LoginPage.class);
                 intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK |Intent.FLAG_ACTIVITY_NEW_TASK);
                 startActivity(intent);

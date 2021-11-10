@@ -2,24 +2,34 @@ package com.MSI.Helper;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 public class SplashScreen extends AppCompatActivity {
+
     ImageView imagepage,imageicon,star1,star2,star3,star4,star5,star6,star7,star8,star9,
                star10,star11,star12,star13,star14,star15;
 
-    TextView titalpage,start;
+    TextView titalpage,start,txt2;
 
     Animation imgon,imgon2,imgon3,imgon4, imgon5, imgon6, imgon7, imgon8, imgon9, imgon10,
-              imgon11, imgon12, imgon13, imgon14, imgon15, imgon16, imgon17,buttone,buttwo,buthree,ltr;
+              imgon11, imgon12, imgon13, imgon14, imgon15, imgon16, imgon17,buttone,buttwo,buthree,ltr,firsttext;
 
     View bgprogress,bgprogresstop;
+
+
+    SharedPreferences sharedPreferences ;
+
+    private static final String SHARED_PREF_NAME = "mypref";
+    private static final String KEY_NAME = "name";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,6 +38,7 @@ public class SplashScreen extends AppCompatActivity {
 
         imagepage =(ImageView) findViewById(R.id.imagepage);
         imageicon=(ImageView) findViewById(R.id.imageicon);
+        txt2 = (TextView) findViewById(R.id.txt2);
         star1=(ImageView) findViewById(R.id.star1);
         star2=(ImageView) findViewById(R.id.star2);
         star3=(ImageView) findViewById(R.id.star3);
@@ -43,7 +54,7 @@ public class SplashScreen extends AppCompatActivity {
         star13=(ImageView) findViewById(R.id.star13);
         star14=(ImageView) findViewById(R.id.star14);
         star15=(ImageView) findViewById(R.id.star15);
-        titalpage = (TextView)  findViewById(R.id.titalpage);
+        titalpage = (TextView) findViewById(R.id.titalpage);
         start=(TextView) findViewById(R.id.start);
         bgprogress=(View) findViewById(R.id.bgprogress);
         bgprogresstop= (View)findViewById(R.id.bgprogresstop);
@@ -72,6 +83,7 @@ public class SplashScreen extends AppCompatActivity {
        buttwo = AnimationUtils.loadAnimation(this, R.anim.buttwo);
        buthree = AnimationUtils.loadAnimation(this, R.anim.buthree);
        ltr= AnimationUtils.loadAnimation(this, R.anim.ltr);
+        firsttext= AnimationUtils.loadAnimation(this, R.anim.firsttext);
 
 
 
@@ -94,9 +106,23 @@ public class SplashScreen extends AppCompatActivity {
         star14.startAnimation(imgon16);
         star15.startAnimation(imgon17);
         titalpage.startAnimation(buttone);
-        start.startAnimation( buthree );
+        start.startAnimation(buthree);
         bgprogress.startAnimation(buttwo);
         bgprogresstop.startAnimation(ltr);
+        txt2.startAnimation(firsttext);
+
+        //shared pref
+        sharedPreferences = getSharedPreferences(SHARED_PREF_NAME, Context.MODE_PRIVATE);
+
+        Boolean name = sharedPreferences.getBoolean(KEY_NAME,false);
+
+
+        if(name==true)
+        {
+            Intent b = new Intent(SplashScreen.this ,selectionPage.class);
+            startActivity(b);
+        }
+
 
 //      giving an event to another page
         start.setOnClickListener(new View.OnClickListener() {

@@ -9,7 +9,7 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:gravity="clip_horizontal|center"
         android:orientation="vertical">
 
@@ -19,13 +19,13 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="50dp"
             android:layout_marginLeft="50dp"
-            android:layout_marginTop="100dp"
+            android:layout_marginTop="140dp"
             android:layout_marginEnd="50dp"
             android:layout_marginRight="50dp"
             android:layout_marginBottom="50dp"
             android:gravity="center"
-            android:textColor="@color/black"
             android:text="Login"
+            android:textColor="@color/black"
             android:textSize="40sp"
             android:textStyle="bold" />
 
@@ -41,17 +41,16 @@
 
             <EditText
                 android:id="@+id/email002"
-                android:layout_width="wrap_content"
+                android:layout_width="175dp"
                 android:layout_height="50dp"
                 android:layout_weight="1"
+                android:background="@null"
+                android:drawableLeft="@drawable/usernameicon"
+                android:drawablePadding="10dp"
                 android:hint="Username"
                 android:inputType="textPersonName"
-                android:drawableLeft="@drawable/usernameicon"
                 android:paddingLeft="20dp"
-                android:drawablePadding="10dp"
-                android:textSize="18dp"
-                android:background="@null"
-                />
+                android:textSize="18dp" />
 
         </LinearLayout>
 
@@ -73,44 +72,31 @@
                 android:layout_weight="1"
                 android:background="@null"
                 android:drawableLeft="@drawable/passwordicon"
+                android:drawablePadding="10dp"
                 android:hint="Password"
                 android:inputType="textPersonName"
-                android:drawablePadding="10dp"
                 android:paddingLeft="20dp" />
         </LinearLayout>
-
-        <TextView
-            android:id="@+id/forgotpasswoed03"
-            android:layout_marginTop="20dp"
-            android:layout_marginEnd="5dp"
-            android:textSize="16dp"
-            android:textStyle="bold"
-            android:textColor="@color/black"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="end"
-            android:text="Forgot Password ?" />
 
         <Button
             android:id="@+id/registerbutton005"
             android:layout_width="318dp"
-            android:layout_marginTop="40dp"
-            android:background="@drawable/gmailogin"
-
             android:layout_height="50dp"
+            android:layout_marginTop="70dp"
+
+            android:background="@drawable/gmailogin"
             android:text="Login" />
 
 
-
-            <TextView
-                android:id="@+id/dontaccount05"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
-                android:gravity="center"
-                android:text="Dont't have an Account ?"
-                android:textSize="15dp"
-                android:textStyle="bold" />
+        <TextView
+            android:id="@+id/dontaccount05"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:gravity="center"
+            android:text="Dont't have an Account ?"
+            android:textSize="15dp"
+            android:textStyle="bold" />
 
 
         <TextView
@@ -120,24 +106,13 @@
             android:gravity="center"
             android:text="Sign up"
             android:textColor="@color/red_500"
-            android:textSize="15dp" />
+            android:textSize="18dp" />
 
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-
-            <Button
-                android:id="@+id/googlebutton07"
-                android:layout_width="84dp"
-                android:layout_height="84dp"
-                android:layout_gravity="top"
-                android:layout_marginLeft="19dp"
-                android:layout_marginTop="12dp"
-                android:layout_marginRight="14dp"
-                android:background="@drawable/googlepreview"
-                tools:ignore="SpeakableTextPresentCheck" />
 
         </LinearLayout>
 

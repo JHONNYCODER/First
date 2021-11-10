@@ -125,7 +125,7 @@ public class OTPAuth extends AppCompatActivity {
             public void onClick(View view) {
                 PhoneAuthProvider.getInstance().verifyPhoneNumber(
                         "+91" + getIntent().getStringExtra("mobile"),
-                        60,
+                        40,
                         TimeUnit.SECONDS,
                         OTPAuth.this,
                         new PhoneAuthProvider.OnVerificationStateChangedCallbacks() {

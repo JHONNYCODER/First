@@ -206,16 +206,32 @@
         android:id="@+id/titalpage"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="208dp"
-        android:fontFamily="@font/abril_fatface"
-        android:text="LET'S START"
+        android:layout_marginBottom="192dp"
+        android:fontFamily="@font/baloo_bhai"
+        android:text=" MSI's UNOFFICIAL APP "
         android:textAlignment="center"
         android:textColor="@color/black"
-        android:textSize="36sp"
+        android:textSize="34sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.517"
+        app:layout_constraintHorizontal_bias="0.619"
         app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/txt2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/baloo_bhai"
+        android:text="Easy Way to Find Important Links \n at one Place"
+        android:textAlignment="center"
+        android:textColor="#010117"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/bgprogress"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.503"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/titalpage"
+        app:layout_constraintVertical_bias="0.0" />
 
     <View
         android:id="@+id/bgprogress"

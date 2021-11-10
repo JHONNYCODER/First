@@ -4,8 +4,11 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
@@ -36,6 +39,10 @@ public class LoginPage extends AppCompatActivity {
     ProgressDialog mloadingbar;
     Button googlebutton07;
     GoogleSignInClient mGoogleSignInClient;
+    SharedPreferences  sharedPreferences ;
+
+    private static final String SHARED_PREF_NAME = "mypref";
+    private static final String KEY_NAME = "name";
 
 
 
@@ -45,32 +52,20 @@ public class LoginPage extends AppCompatActivity {
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.login_page);
 
+        sharedPreferences = getSharedPreferences(SHARED_PREF_NAME,Context.MODE_PRIVATE);
 
-        btn=findViewById(R.id.signup06);
-        email002=findViewById(R.id.email002);
-        password003=findViewById(R.id.password003);
-        registerbutton005=findViewById(R.id.registerbutton005);
-        mAuth=FirebaseAuth.getInstance();
-        mloadingbar=new ProgressDialog(LoginPage.this);
-        googlebutton07=findViewById(R.id.googlebutton07);
-
-        registerbutton005.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                checkCrededentials();
-
-            }
-        });
+        btn = findViewById(R.id.signup06);
+        email002 = findViewById(R.id.email002);
+        password003 = findViewById(R.id.password003);
+        registerbutton005 = findViewById(R.id.registerbutton005);
+        mAuth = FirebaseAuth.getInstance();
+        mloadingbar = new ProgressDialog(LoginPage.this);
 
 
-        btn.setOnClickListener(new View.OnClickListener() {
+        registerbutton005.setOnClickListener(view -> checkCrededentials());
 
 
-            @Override
-            public void onClick(View view) {
-                startActivity(new Intent(LoginPage.this, Register.class));
-            }
-        });
+        btn.setOnClickListener(view -> startActivity(new Intent(LoginPage.this, Register.class)));
 
         GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
                 .requestIdToken(getString(R.string.default_web_client_id))
@@ -78,17 +73,10 @@ public class LoginPage extends AppCompatActivity {
                 .build();
 
 
-
         mGoogleSignInClient = GoogleSignIn.getClient(this, gso);
-        googlebutton07.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                signIn();
-
-            }
-        });
-
+        googlebutton07.setOnClickListener(view -> signIn());
     }
+
     private void signIn() {
         Intent signInIntent = mGoogleSignInClient.getSignInIntent();
         startActivityForResult(signInIntent, RC_SIGN_IN);
@@ -106,33 +94,35 @@ public class LoginPage extends AppCompatActivity {
                 GoogleSignInAccount account = task.getResult(ApiException.class);
                 firebaseAuthWithGoogle(account.getIdToken());
             } catch (ApiException e) {
+                Log.d("devdevdev", "" + e.getStatusCode());
+                Log.d("devdevdev", "" + e.getStatus());
                 // Google Sign In failed, update UI appropriately
-                Toast.makeText(this, e.toString(), Toast.LENGTH_SHORT).show();
+//                Toast.makeText(this, e.toString(), Toast.LENGTH_SHORT).show();
             }
         }
     }
+
     private void firebaseAuthWithGoogle(String idToken) {
         AuthCredential credential = GoogleAuthProvider.getCredential(idToken, null);
         mAuth.signInWithCredential(credential)
-                .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
-                    @Override
-                    public void onComplete(@NonNull Task<AuthResult> task) {
-                        if (task.isSuccessful()) {
-                            // Sign in success, update UI with the signed-in user's information
+                .addOnCompleteListener(this, task -> {
+                    if (task.isSuccessful()) {
+                        // Sign in success, update UI with the signed-in user's information
 
-                            FirebaseUser user = mAuth.getCurrentUser();
-                            Toast.makeText(LoginPage.this, user.getEmail()+user.getDisplayName(), Toast.LENGTH_SHORT).show();
-                            updateUI(user);
-                        } else {
-                            // If sign in fails, display a message to the user.
-                            Toast.makeText(LoginPage.this,task.getException().toString(), Toast.LENGTH_SHORT).show();
-                            updateUI(null);
-                        }
+                        FirebaseUser user = mAuth.getCurrentUser();
+                        Toast.makeText(LoginPage.this, user.getEmail()+user.getDisplayName(), Toast.LENGTH_SHORT).show();
+                        updateUI(user);
+                    } else {
+                        // If sign in fails, display a message to the user.
+                        Toast.makeText(LoginPage.this,task.getException().toString(), Toast.LENGTH_SHORT).show();
+                        updateUI(null);
                     }
                 });
     }
 
     private void updateUI(FirebaseUser user) {
+
+
         Intent intent=new Intent(LoginPage.this,selectionPage.class);
         startActivity(intent);
     }
@@ -170,8 +160,16 @@ public class LoginPage extends AppCompatActivity {
                         Toast.makeText(LoginPage.this, "Successfully Registration", Toast.LENGTH_SHORT).show();
 
                         mloadingbar.dismiss();
+                        //sharedpref
+                        Boolean name = sharedPreferences.getBoolean(KEY_NAME,false);
+                        SharedPreferences.Editor editor = sharedPreferences.edit();
+                        editor.putBoolean(KEY_NAME,true);
+                        editor.apply();
+
                         Intent intent = new Intent(LoginPage.this, selectionPage.class);
-                        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
+
+
+                       // intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
                         startActivity(intent);
 
                     } else {
