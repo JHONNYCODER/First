@@ -144,18 +144,20 @@
             android:layout_height="50dp"
             android:layout_marginTop="40dp"
             android:background="@drawable/gmailogin"
-            android:backgroundTint="@color/white"
+            android:backgroundTint="#C3F6E2"
             android:fontFamily="@font/baloo_bhai"
             android:text="Register"
             android:textSize="20sp" />
 
         <TextView
             android:id="@+id/alreadyac006"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:gravity="center"
             android:textSize="13dp"
             android:textStyle="bold"
+            android:backgroundTint="#ECF7F8"
+            android:background="@drawable/gmailogin"
             android:layout_marginTop="30dp"
             android:text="Already Have an Account" />
 

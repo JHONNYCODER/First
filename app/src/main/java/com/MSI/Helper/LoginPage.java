@@ -37,7 +37,6 @@ public class LoginPage extends AppCompatActivity {
     Button registerbutton005;
     private FirebaseAuth mAuth;
     ProgressDialog mloadingbar;
-    Button googlebutton07;
     GoogleSignInClient mGoogleSignInClient;
     SharedPreferences  sharedPreferences ;
 
@@ -74,7 +73,7 @@ public class LoginPage extends AppCompatActivity {
 
 
         mGoogleSignInClient = GoogleSignIn.getClient(this, gso);
-        googlebutton07.setOnClickListener(view -> signIn());
+
     }
 
     private void signIn() {
