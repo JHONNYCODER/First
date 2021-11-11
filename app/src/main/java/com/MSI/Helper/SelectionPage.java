@@ -14,8 +14,10 @@ import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
 
+import memes.MemesActivity;
 
-public class selectionPage extends AppCompatActivity {
+
+public class SelectionPage extends AppCompatActivity {
 
     FirebaseAuth mAuth;
     SharedPreferences sharedPreferences ;
@@ -38,95 +40,87 @@ public class selectionPage extends AppCompatActivity {
         LinearLayout ld7 = findViewById(R.id.ld7);
         LinearLayout ld8 = findViewById(R.id.ld8);
         LinearLayout ld9 = findViewById(R.id.ld9);
-        LinearLayout ld10 = findViewById(R.id.ld10);
+
 
         TextView log  = findViewById(R.id.log);
         TextView team = findViewById(R.id.team);
 
-        mAuth=FirebaseAuth.getInstance();
+        mAuth=FirebaseAuth.getInstance(); //get user details
         sharedPreferences = getSharedPreferences(SHARED_PREF_NAME, Context.MODE_PRIVATE);
         ld1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view1) {
-                Intent intent1 = new Intent(selectionPage.this , firstlink.class);
+                Intent intent1 = new Intent(SelectionPage.this , firstlink.class);
                 startActivity(intent1);
             }
         });
         ld2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view2) {
-                Intent intent2 = new Intent(selectionPage.this , secondlink.class);
+                Intent intent2 = new Intent(SelectionPage.this , secondlink.class);
                 startActivity(intent2);
             }
         });
         ld3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view3) {
-                Intent intent3 = new Intent(selectionPage.this , thirdlink.class);
+                Intent intent3 = new Intent(SelectionPage.this , thirdlink.class);
                 startActivity(intent3);
             }
         });
         ld4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view4) {
-                Intent intent4 = new Intent(selectionPage.this , fourthlink.class);
+                Intent intent4 = new Intent(SelectionPage.this , fourthlink.class);
                 startActivity(intent4);
             }
         });
         ld5.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view5) {
-                Intent intent5 = new Intent(selectionPage.this , fifthlink.class);
+                Intent intent5 = new Intent(SelectionPage.this , fifthlink.class);
                 startActivity(intent5);
             }
         });
         ld6.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view6) {
-                Intent intent6 = new Intent(selectionPage.this , sixthlink.class);
+                Intent intent6 = new Intent(SelectionPage.this , sixthlink.class);
                 startActivity(intent6);
             }
         });
         ld7.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view7) {
-                Intent intent7 = new Intent(selectionPage.this , seventhlink.class);
+                Intent intent7 = new Intent(SelectionPage.this , seventhlink.class);
                 startActivity(intent7);
             }
         });
         ld8.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view8) {
-                Intent intent8 = new Intent(selectionPage.this , eighthlink.class);
+                Intent intent8 = new Intent(SelectionPage.this , eighthlink.class);
                 startActivity(intent8);
             }
         });
         ld9.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view9) {
-                Intent intent9 = new Intent(selectionPage.this , ninthlink.class);
+                Intent intent9 = new Intent(SelectionPage.this , MemesActivity.class);
                 startActivity(intent9);
-            }
-        });
-        ld10.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view10) {
-                Intent intent10 = new Intent(selectionPage.this , tenthlink.class);
-                startActivity(intent10);
             }
         });
         team.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view12) {
-                Intent tzt = new Intent(selectionPage.this , selectionPage.class);
+                Intent tzt = new Intent(SelectionPage.this , TeamMates.class);
                 startActivity(tzt);
             }
         });
         log.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                mAuth.signOut();
-
+                mAuth.signOut();                                            //logout (firebase)
                 sharedPreferences = getSharedPreferences(SHARED_PREF_NAME,MODE_PRIVATE);
                 Boolean name = sharedPreferences.getBoolean(KEY_NAME,false);
 
@@ -134,10 +128,10 @@ public class selectionPage extends AppCompatActivity {
                     editor.putBoolean(KEY_NAME,false);
                     editor.apply();
                     finish();
-                Toast.makeText(selectionPage.this, "Logged Out",Toast.LENGTH_SHORT).show();
+                Toast.makeText(SelectionPage.this, "Logged Out",Toast.LENGTH_SHORT).show();
 
 
-                Intent intent=new Intent(selectionPage.this, LoginPage.class);
+                Intent intent=new Intent(SelectionPage.this, LoginPage.class);
                 intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK |Intent.FLAG_ACTIVITY_NEW_TASK);
                 startActivity(intent);
             }

@@ -119,7 +119,7 @@ public class SplashScreen extends AppCompatActivity {
 
         if(name==true)
         {
-            Intent b = new Intent(SplashScreen.this ,selectionPage.class);
+            Intent b = new Intent(SplashScreen.this ,SelectionPage.class);
             startActivity(b);
         }
 

@@ -122,7 +122,7 @@ public class LoginPage extends AppCompatActivity {
     private void updateUI(FirebaseUser user) {
 
 
-        Intent intent=new Intent(LoginPage.this,selectionPage.class);
+        Intent intent=new Intent(LoginPage.this,SelectionPage.class);
         startActivity(intent);
     }
 
@@ -156,7 +156,7 @@ public class LoginPage extends AppCompatActivity {
                 public void onComplete(@NonNull Task<AuthResult> task) {
                     if (task.isSuccessful()) {
 
-                        Toast.makeText(LoginPage.this, "Successfully Registration", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(LoginPage.this, "Successful Login", Toast.LENGTH_SHORT).show();
 
                         mloadingbar.dismiss();
                         //sharedpref
@@ -165,9 +165,7 @@ public class LoginPage extends AppCompatActivity {
                         editor.putBoolean(KEY_NAME,true);
                         editor.apply();
 
-                        Intent intent = new Intent(LoginPage.this, selectionPage.class);
-
-
+                        Intent intent = new Intent(LoginPage.this, SelectionPage.class);
                        // intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
                         startActivity(intent);
 

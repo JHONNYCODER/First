@@ -100,14 +100,13 @@
                 android:layout_width="wrap_content"
                 android:layout_height="50dp"
                 android:layout_weight="1"
-                android:hint="password"
-                android:inputType="textPersonName"
-                android:drawableLeft="@drawable/passwordicon"
-                android:paddingLeft="20dp"
-                android:drawablePadding="10dp"
-                android:textSize="18dp"
                 android:background="@null"
-                 />
+                android:drawableLeft="@drawable/passwordicon"
+                android:drawablePadding="10dp"
+                android:hint="Password"
+                android:inputType="textPersonName"
+                android:paddingLeft="20dp"
+                android:textSize="18dp" />
 
         </LinearLayout>
 
@@ -127,14 +126,13 @@
                 android:layout_width="wrap_content"
                 android:layout_height="50dp"
                 android:layout_weight="1"
-                android:hint="conform password"
-                android:inputType="textPersonName"
-                android:drawableLeft="@drawable/passwordicon"
-                android:paddingLeft="20dp"
-                android:drawablePadding="10dp"
-                android:textSize="18dp"
                 android:background="@null"
-               />
+                android:drawableLeft="@drawable/passwordicon"
+                android:drawablePadding="10dp"
+                android:hint="Confirm Password"
+                android:inputType="textPersonName"
+                android:paddingLeft="20dp"
+                android:textSize="18dp" />
         </LinearLayout>
 
 
@@ -153,13 +151,13 @@
             android:id="@+id/alreadyac006"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:gravity="center"
-            android:textSize="13dp"
-            android:textStyle="bold"
-            android:backgroundTint="#ECF7F8"
-            android:background="@drawable/gmailogin"
             android:layout_marginTop="30dp"
-            android:text="Already Have an Account" />
+            android:background="@drawable/gmailogin"
+            android:backgroundTint="#ECF7F8"
+            android:gravity="center"
+            android:text="Already Have an Account?"
+            android:textSize="13dp"
+            android:textStyle="bold" />
 
     </LinearLayout>
 

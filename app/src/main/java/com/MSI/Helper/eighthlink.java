@@ -62,16 +62,7 @@ public class eighthlink extends AppCompatActivity {
     }
 
 
-  /*  private class WebViewClientDemo extends WebViewClient {
-        @Override
-        //Keep webview in app when clicking links
-        public boolean shouldOverrideUrlLoading(WebView view, String url) {
-            view.loadUrl(url);
-            return true;
-        }
 
-    }
-*/
     //set back button functionality
     @Override
     public void onBackPressed() { //if user presses the back button do this

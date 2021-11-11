@@ -96,12 +96,12 @@ public class Register extends AppCompatActivity {
                 public void onComplete(@NonNull Task<AuthResult> task) {
                     if (task.isSuccessful())
                     {
-                        Toast.makeText(Register.this, "Successfully Registration", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(Register.this, "Successfull Registration", Toast.LENGTH_SHORT).show();
 
                         mloadingbar.dismiss();
-                        Intent intent=new Intent(Register.this,selectionPage.class);
-                        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK |Intent.FLAG_ACTIVITY_NEW_TASK);
-                        startActivity(intent);
+                        Intent intent56=new Intent(Register.this,LoginPage.class);
+                        intent56.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK |Intent.FLAG_ACTIVITY_NEW_TASK);
+                        startActivity(intent56);
 
                     }
                     else
